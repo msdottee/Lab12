@@ -10,10 +10,10 @@ public class CarAppPartTwo {
 	public static List<Car> cars = new ArrayList<>();
 	static {
 		cars.add(new Car("Subaru", "Impreza", 2018, 24000.00));
-		cars.add(new Car("Ford", "Focus RS", 2019, 45000.00));
+		cars.add(new Car("Chevy", "Bolt", 2020, 45000.00));
 		cars.add(new Car("Mitsubishi", "Lancer", 2019, 20000.00));
 		cars.add(new UsedCar("Toyota", "Rav4", 2009, 5000.00, 19000.00));
-		cars.add(new UsedCar("Nissan", "Cube", 2000, 2.00, 300.00));
+		cars.add(new UsedCar("Nissan", "Cube", 2000, 150.00, 300.00));
 		cars.add(new UsedCar("Subaru", "Crossover", 1999, 6000.00, 13000.00));
 	}
 
@@ -23,11 +23,18 @@ public class CarAppPartTwo {
 	}
 
 	public static void listCars() {
+		int count = 1;
 
-		for (int i = 0; i < cars.size(); i++) {
-			System.out.println((i + 1) + ": " + cars.get(i));
-		}
-		System.out.println((cars.size() + 1) + ": Quit");
+		for (Car c : cars) {
+			System.out.printf((count) + "." + "%-15s %-15s %4d $%,.2f", c.getMake(), c.getModel(), c.getYear(), c.getPrice());
+			count++;
+			if (c instanceof UsedCar) {
+				UsedCar usedCar = (UsedCar)c;
+				System.out.printf(" (Used) %,.1f miles", usedCar.getMileage());
+			}
+			System.out.println();
+		} 
+		System.out.println((cars.size() + 1) + ".Quit");
 	}
 
 	public static void whileLoop() {
