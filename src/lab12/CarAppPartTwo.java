@@ -22,6 +22,28 @@ public class CarAppPartTwo {
 
 	}
 
+	public static void whileLoop() {
+		boolean buyCar = true;
+		while (buyCar) {
+			listCars();
+			System.out.println();
+			System.out.print("Which car would you like? ");
+			int numCar = scnr.nextInt();
+			if (numCar >= cars.size()) {
+				buyCar = false;
+				System.out.println("Have a great day!");
+			} else {
+				showCarById(numCar);
+				System.out.println("Would you like to buy this car?");
+				String answer = scnr.next();
+				if (answer.equals("y")) {
+					buyCar(numCar);
+					System.out.println("Excellent! Our fiance department will be in touch shortly.");
+				} 
+			}
+		}
+	}
+
 	public static void listCars() {
 		int count = 1;
 
@@ -35,28 +57,6 @@ public class CarAppPartTwo {
 			System.out.println();
 		} 
 		System.out.println((cars.size() + 1) + ".Quit");
-	}
-
-	public static void whileLoop() {
-		boolean buyCar = true;
-		while (buyCar) {
-			listCars();
-			System.out.println();
-			System.out.print("Which car would you like? ");
-			int numCar = scnr.nextInt();
-			if (numCar >= cars.size()) {
-				buyCar = false;
-				System.out.println("Have a great day!");
-			} else {
-				System.out.println(cars.get(numCar));
-				System.out.println("Would you like to buy this car?");
-				String answer = scnr.next();
-				if (answer.equals("y")) {
-					buyCar(numCar);
-					System.out.println("Excellent! Our fiance department will be in touch shortly.");
-				} 
-			}
-		}
 	}
 
 	public static void showCarById(int id) {
