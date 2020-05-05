@@ -26,7 +26,7 @@ public class CarAppPartTwo {
 		int count = 1;
 
 		for (Car c : cars) {
-			System.out.printf((count) + "." + "%-15s %-15s %4d $%,.2f", c.getMake(), c.getModel(), c.getYear(), c.getPrice());
+			System.out.printf((count) + "." + "%-15s %-15s %-15d $%,.2f", c.getMake(), c.getModel(), c.getYear(), c.getPrice());
 			count++;
 			if (c instanceof UsedCar) {
 				UsedCar usedCar = (UsedCar)c;

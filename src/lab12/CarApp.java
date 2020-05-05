@@ -44,8 +44,8 @@ public class CarApp {
 		System.out.println();
 		System.out.println("Current Inventory:");
 		
-		for (int i = 0; i < cars.size(); i++) {
-			System.out.println(cars.get(i));
+		for (Car c : cars) {
+			System.out.printf("%-10s %-10s %-10d $%,.2f\n", c.getMake(), c.getModel(), c.getYear(), c.getPrice());
 		}
 	}
 
